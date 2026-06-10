@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="750" viewBox="0 0 1200 750">
+  <defs>
+    <linearGradient id="g" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" style="stop-color:#1a1a1a"/>
+      <stop offset="100%" style="stop-color:#0d0d0d"/>
+    </linearGradient>
+  </defs>
+  <rect width="1200" height="750" fill="url(#g)"/>
+  <path d="M280 420h640l-48-120h-88l-32-72h-200l-32 72h-88z" fill="none" stroke="#C9A84C" stroke-width="2" opacity="0.35"/>
+  <circle cx="380" cy="420" r="36" fill="none" stroke="#C9A84C" stroke-width="2" opacity="0.35"/>
+  <circle cx="820" cy="420" r="36" fill="none" stroke="#C9A84C" stroke-width="2" opacity="0.35"/>
+  <text x="600" y="520" text-anchor="middle" fill="#9A9285" font-family="Georgia, serif" font-size="22" letter-spacing="0.2em">PREMIER AUTO</text>
+</svg>
