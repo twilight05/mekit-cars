@@ -2,7 +2,7 @@
 
 import Image from "next/image";
 import Link from "next/link";
-import { ArrowUpRight, Heart } from "lucide-react";
+import { ArrowUpRight, Heart, Eye } from "lucide-react"; // Imported Eye icon for "View Details"
 import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Card } from "@/components/ui/card";
@@ -75,7 +75,15 @@ export function CarCard({ car }: { car: Car }) {
         </div>
       </Link>
 
-      <div className="px-6 pb-6">
+      {/* Action Buttons Section */}
+      <div className="grid grid-cols-2 gap-3 px-6 pb-6">
+        <Button asChild variant="outline" className="w-full border-white/10 hover:bg-white/5 text-white">
+          <Link href={`/car/${car.id}`}>
+            <Eye className="mr-2 h-4 w-4" />
+            Details
+          </Link>
+        </Button>
+        
         <Button className="w-full" disabled={sold} onClick={handleRent}>
           {sold ? "Unavailable" : "Rent Now"}
         </Button>
