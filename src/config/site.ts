@@ -9,9 +9,9 @@ export const SITE = {
   tagline: "Premium vehicle hire for weddings, corporate events, and executive travel across Nigeria.",
 
   /** ← Change this to your real WhatsApp number */
-  whatsappNumber: "08139723327",
+  whatsappNumber: "+1(713)514-3013",
 
-  phone: "08139723327",
+  phone: "+1(713)514-3013",
   email: "info@mekitcarrentals.com",
   location: "Lagos, Nigeria",
 
