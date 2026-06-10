@@ -317,10 +317,6 @@ app.get('/api/admin/stats', authMiddleware, (_req, res) => {
   res.json({ cars, inquiries, contacts, interests });
 });
 
-app.get('/car/:id', (req, res) => {
-  res.sendFile(path.join(__dirname, '..', 'public', 'car.html'));
-});
-
 app.use((err, _req, res, _next) => {
   console.error(err);
   res.status(500).json({ error: err.message || 'Server error' });

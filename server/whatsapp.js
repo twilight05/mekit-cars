@@ -13,7 +13,8 @@ function buildWhatsAppUrl(number, text) {
 function absoluteListingUrl(req, carId) {
   const host = req.get('x-forwarded-host') || req.get('host') || 'localhost:3000';
   const proto = req.get('x-forwarded-proto') || req.protocol || 'http';
-  return `${proto}://${host}/car.html?id=${carId}`;
+  const webHost = host.replace(':3001', ':3000');
+  return `${proto}://${webHost}/car/${carId}`;
 }
 
 function formatCarDetails(car, listingUrl) {
