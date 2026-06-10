@@ -8,7 +8,7 @@
     "dev": "concurrently \"npm run dev:api\" \"npm run dev:web\"",
     "dev:api": "cross-env PORT=3001 node --watch server/index.js",
     "dev:web": "cd frontend && npm run dev",
-    "build": "cd frontend && npm run build"
+    "build": "npm install --prefix frontend && cd frontend && npx next build"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
