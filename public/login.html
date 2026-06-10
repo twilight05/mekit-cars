@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Staff Login</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/app.css">
+</head>
+<body>
+  <div class="auth-page">
+    <div class="auth-card">
+      <h1>Staff login</h1>
+      <p class="subtitle">Company staff only — manage listings and settings.</p>
+      <div id="alert" class="hidden"></div>
+      <form id="login-form">
+        <div class="form-group">
+          <label for="email">Email</label>
+          <input type="email" id="email" required autocomplete="username" value="admin@company.com">
+        </div>
+        <div class="form-group">
+          <label for="password">Password</label>
+          <input type="password" id="password" required autocomplete="current-password" placeholder="••••••••">
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Sign in</button>
+      </form>
+      <p style="margin-top:20px;text-align:center;font-size:13px;">
+        <a href="/">← Back to listings</a>
+      </p>
+    </div>
+  </div>
+
+  <script src="/js/api.js"></script>
+  <script>
+    if (localStorage.getItem('admin_token')) {
+      location.href = '/admin.html';
+    }
+
+    document.getElementById('login-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      const alert = document.getElementById('alert');
+      alert.className = 'hidden';
+
+      try {
+        const data = await api('/api/auth/login', {
+          method: 'POST',
+          body: {
+            email: document.getElementById('email').value,
+            password: document.getElementById('password').value
+          }
+        });
+        localStorage.setItem('admin_token', data.token);
+        location.href = '/admin.html';
+      } catch (err) {
+        alert.className = 'alert alert-error';
+        alert.textContent = err.message;
+        alert.classList.remove('hidden');
+      }
+    });
+  </script>
+</body>
+</html>

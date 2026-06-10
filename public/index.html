@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Mekit Car Rentals — premium vehicle hire in Nigeria. Browse our fleet and rent instantly.">
+  <title>Mekit Car Rentals</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/app.css">
+</head>
+<body>
+  <section class="hero-banner" id="hero-banner" style="background-image: url('/images/hero.png')">
+    <div id="site-header-mount"></div>
+    <div class="hero-content">
+      <h1>Start Your Journey with <span id="hero-brand">Mekit Car Rentals</span> Today!</h1>
+      <a href="/fleet.html" class="btn btn-white">Explore Car Selection</a>
+    </div>
+    <p class="hero-note" id="hero-note">Premium vehicles for weddings, events, corporate travel, and daily hire across Nigeria.</p>
+  </section>
+
+  <section class="section section-white">
+    <div class="section-inner">
+      <div class="about-block">
+        <h2>Discover Why Mekit is Your Perfect Choice</h2>
+        <p id="about-intro">We provide executive transport and vehicle hire for weddings, corporate events, airport transfers, and special occasions across Nigeria.</p>
+        <div class="vision-mission">
+          <div class="vm-item">
+            <h3>Vision</h3>
+            <p>To be Nigeria's most trusted premium vehicle rental brand — delivering luxury, reliability, and seamless booking every time.</p>
+          </div>
+          <div class="vm-item">
+            <h3>Mission</h3>
+            <p>To offer a curated fleet of well-maintained vehicles with transparent pricing and instant support through WhatsApp.</p>
+          </div>
+        </div>
+      </div>
+      <img src="/images/hero.png" alt="Premium vehicle from Mekit Car Rentals" class="about-image" loading="lazy">
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-head">
+        <h2>Find Your Ideal Ride Waiting Just for You</h2>
+        <p class="section-lead">Browse our showroom — tap Rent Now on any vehicle to book instantly via WhatsApp.</p>
+      </div>
+      <div id="featured-loading" class="loading">Loading vehicles…</div>
+      <div id="featured-grid" class="inventory-grid hidden"></div>
+      <div class="section-cta">
+        <a href="/fleet.html" class="btn btn-primary">View Full Showroom</a>
+      </div>
+    </div>
+  </section>
+
+  <section class="section section-white">
+    <div class="section-inner deals-split">
+      <div>
+        <h2>Unlock Amazing Deals You'll Wish You Claimed Sooner!</h2>
+        <ul class="deals-list">
+          <li>Up to 10% discount on weekly rentals</li>
+          <li>Free first-day chauffeur on select vehicles</li>
+          <li>Flexible installment plans available</li>
+        </ul>
+        <a href="/contact.html" class="btn btn-primary">Get Your Offer</a>
+      </div>
+      <img src="/images/hero.png" alt="Featured sports car" class="deals-image" loading="lazy">
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-inner">
+      <div class="section-head centered">
+        <h2>Experience Hassle-Free Driving with Our Support</h2>
+      </div>
+      <div class="services-grid">
+        <article class="service-card">
+          <div class="service-icon">🔄</div>
+          <h3>Trade-In</h3>
+          <p>Upgrade your ride with our flexible trade-in options on select inventory.</p>
+        </article>
+        <article class="service-card">
+          <div class="service-icon">💳</div>
+          <h3>Financing</h3>
+          <p>Easy payment plans tailored to your budget — ask us on WhatsApp.</p>
+        </article>
+        <article class="service-card">
+          <div class="service-icon">🛠</div>
+          <h3>After-Sales Support</h3>
+          <p>Every vehicle is inspected and maintained for your peace of mind.</p>
+        </article>
+      </div>
+      <div class="section-cta">
+        <a href="/fleet.html" class="btn btn-primary">Rent Now</a>
+      </div>
+    </div>
+  </section>
+
+  <div id="site-footer-mount"></div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/layout.js"></script>
+  <script>
+    async function init() {
+      try {
+        const [settings, cars] = await Promise.all([
+          initPage({ title: 'Home', variant: 'dark' }),
+          api('/api/cars?limit=4')
+        ]);
+
+        document.getElementById('hero-brand').textContent = settings.company_name || 'Mekit Car Rentals';
+        document.getElementById('hero-note').textContent = settings.hero_text || document.getElementById('hero-note').textContent;
+        document.getElementById('about-intro').textContent = settings.about_text || document.getElementById('about-intro').textContent;
+
+        const grid = document.getElementById('featured-grid');
+        document.getElementById('featured-loading').classList.add('hidden');
+        if (cars.length) {
+          grid.innerHTML = cars.map((c) => renderCarCard(c)).join('');
+          grid.classList.remove('hidden');
+          bindCarCards(grid);
+        }
+      } catch (e) {
+        document.getElementById('featured-loading').textContent = 'Start the server with npm start to view the site.';
+      }
+    }
+    init();
+  </script>
+</body>
+</html>

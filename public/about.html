@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>About Us</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/app.css">
+</head>
+<body>
+  <div id="site-header-mount"></div>
+
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <p class="hero-eyebrow">About Us</p>
+      <h1 id="about-heading">Mekit Car Rentals</h1>
+      <p class="hero-lead" id="about-intro">Loading…</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-inner content-grid">
+      <div class="content-main">
+        <h2>Who we are</h2>
+        <p id="about-body">Loading…</p>
+        <p>Whether you need a stretch limousine for a wedding, an executive sedan for business travel, or a premium SUV for a special occasion, our team ensures every detail is handled with care.</p>
+      </div>
+      <aside class="content-aside">
+        <div class="info-card">
+          <h3>At a glance</h3>
+          <ul class="info-list">
+            <li><span>Location</span><strong id="about-location">—</strong></li>
+            <li><span>Phone</span><strong id="about-phone">—</strong></li>
+            <li><span>Email</span><strong id="about-email">—</strong></li>
+            <li><span>Support</span><strong>WhatsApp 24/7</strong></li>
+          </ul>
+          <a href="/contact.html" class="btn btn-primary btn-block" style="margin-top:20px">Contact us</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <section class="section section-alt">
+    <div class="section-inner">
+      <div class="section-head centered">
+        <p class="section-eyebrow">Our promise</p>
+        <h2>What you can expect</h2>
+      </div>
+      <div class="features-grid">
+        <div class="feature-card">
+          <div class="feature-icon">✓</div>
+          <h3>Well-maintained fleet</h3>
+          <p>Every vehicle undergoes regular servicing and inspection before each hire.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">✓</div>
+          <h3>Fast response</h3>
+          <p>Inquiries sent via WhatsApp reach us instantly — no waiting on email replies.</p>
+        </div>
+        <div class="feature-card">
+          <div class="feature-icon">✓</div>
+          <h3>Flexible bookings</h3>
+          <p>Hourly, daily, and event packages tailored to your schedule and budget.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div id="site-footer-mount"></div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/layout.js"></script>
+  <script>
+    initPage({ title: 'About Us', active: 'About Us' }).then((s) => {
+      document.getElementById('about-heading').textContent = s.company_name;
+      document.getElementById('about-intro').textContent = s.tagline || '';
+      document.getElementById('about-body').textContent = s.about_text || 'We provide premium vehicle hire and sales across Nigeria.';
+      document.getElementById('about-location').textContent = s.location || '—';
+      document.getElementById('about-phone').textContent = s.phone || '—';
+      document.getElementById('about-email').textContent = s.email || '—';
+    });
+  </script>
+</body>
+</html>

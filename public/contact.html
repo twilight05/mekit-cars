@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contact</title>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/css/app.css">
+</head>
+<body>
+  <div id="site-header-mount"></div>
+
+  <section class="page-hero">
+    <div class="page-hero-inner">
+      <p class="hero-eyebrow">Location</p>
+      <h1>Contact Us</h1>
+      <p class="hero-lead">Reach our team — we respond quickly on WhatsApp.</p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="section-inner content-grid">
+      <div class="content-main">
+        <div class="inquiry-box">
+          <h2>Send a message</h2>
+          <div id="form-alert" class="hidden"></div>
+          <form id="contact-form">
+            <div class="form-group">
+              <label for="name">Full name</label>
+              <input type="text" id="name" required>
+            </div>
+            <div class="form-group">
+              <label for="phone">Phone</label>
+              <input type="tel" id="phone" required placeholder="08012345678">
+            </div>
+            <div class="form-group">
+              <label for="email">Email (optional)</label>
+              <input type="email" id="email">
+            </div>
+            <div class="form-group">
+              <label for="subject">Subject</label>
+              <input type="text" id="subject" placeholder="Wedding booking, fleet inquiry…">
+            </div>
+            <div class="form-group">
+              <label for="message">Message</label>
+              <textarea id="message" placeholder="Tell us what you need…"></textarea>
+            </div>
+            <button type="submit" class="btn btn-primary btn-block" id="submit-btn">Send Message</button>
+          </form>
+        </div>
+      </div>
+      <aside class="content-aside">
+        <div class="info-card">
+          <h3>Get in touch</h3>
+          <ul class="info-list">
+            <li><span>Phone</span><strong id="info-phone">08139723327</strong></li>
+            <li><span>Email</span><strong id="info-email">—</strong></li>
+            <li><span>Location</span><strong id="info-location">—</strong></li>
+          </ul>
+        </div>
+        <div class="info-card" style="margin-top:16px">
+          <h3>Ready to rent?</h3>
+          <p style="color:var(--text-muted);font-size:0.9375rem;margin-bottom:16px">Browse the showroom and tap Rent Now on any vehicle.</p>
+          <a href="/fleet.html" class="btn btn-rent btn-block">Browse Showroom</a>
+        </div>
+      </aside>
+    </div>
+  </section>
+
+  <div id="site-footer-mount"></div>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/layout.js"></script>
+  <script>
+    initPage({ title: 'Contact', active: 'Location' }).then((s) => {
+      document.getElementById('info-phone').textContent = s.phone || '08139723327';
+      document.getElementById('info-email').textContent = s.email || '—';
+      document.getElementById('info-location').textContent = s.location || '—';
+    });
+
+    document.getElementById('contact-form').addEventListener('submit', async (e) => {
+      e.preventDefault();
+      await submitWhatsAppForm('/api/contact', {
+        name: document.getElementById('name').value,
+        phone: document.getElementById('phone').value,
+        email: document.getElementById('email').value,
+        subject: document.getElementById('subject').value,
+        message: document.getElementById('message').value
+      }, document.getElementById('submit-btn'), 'Your message is ready — tap send in WhatsApp.');
+    });
+  </script>
+</body>
+</html>

@@ -1,0 +1,26 @@
+{
+  "name": "fleet-hub",
+  "version": "2.0.0",
+  "private": true,
+  "description": "White-label vehicle listing platform with WhatsApp inquiries",
+  "scripts": {
+    "start": "concurrently \"cross-env PORT=3001 node server/index.js\" \"cd frontend && npm run start\"",
+    "dev": "concurrently \"npm run dev:api\" \"npm run dev:web\"",
+    "dev:api": "cross-env PORT=3001 node --watch server/index.js",
+    "dev:web": "cd frontend && npm run dev",
+    "dev:legacy": "node --watch server/index.js",
+    "build": "cd frontend && npm run build"
+  },
+  "dependencies": {
+    "bcryptjs": "^2.4.3",
+    "better-sqlite3": "^11.7.0",
+    "cors": "^2.8.5",
+    "express": "^4.21.2",
+    "jsonwebtoken": "^9.0.2",
+    "multer": "^1.4.5-lts.1"
+  },
+  "devDependencies": {
+    "concurrently": "^9.2.1",
+    "cross-env": "^7.0.3"
+  }
+}
