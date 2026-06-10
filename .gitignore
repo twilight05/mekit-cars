@@ -1,4 +1,9 @@
 node_modules/
-/data/
-/uploads/
-*.db
+.next/
+out/
+.env*
+*.pem
+.DS_Store
+npm-debug.log*
+.vercel
+*.tsbuildinfo
