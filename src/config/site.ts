@@ -5,18 +5,18 @@
  * Messages open directly in WhatsApp; no backend required.
  */
 export const SITE = {
-  companyName: "Mekit Car Rentals",
-  tagline: "Premium vehicle hire for weddings, corporate events, and executive travel across Nigeria.",
+  companyName: "Mekit Happen Luxury Ryde",
+  tagline: "Where Luxury Meets Every Journey.",
 
   /** ← Change this to your real WhatsApp number */
   whatsappNumber: "+1(713)514-3013",
 
   phone: "+1(713)514-3013",
   email: "info@mekitcarrentals.com",
-  location: "Lagos, Nigeria",
+  location: "Houston, Texas",
 
   heroText:
-    "Premium vehicles for weddings, events, corporate travel, and daily hire across Nigeria.",
+    "Premium luxury transportation for executives, weddings, events, and airport transfers across Houston, Texas.",
   aboutText:
-    "Mekit Car Rentals provides executive transport and vehicle hire for weddings, corporate events, airport transfers, and special occasions across Nigeria.",
+    "Mekit Happen Luxury Ryde is a premium transportation service dedicated to providing safe, reliable, and luxury travel experiences across Houston and surrounding areas in Texas. Founded by Mmekeme Umosen (Mek), the company was built on the belief that every journey should be more than just transportation—it should be an experience of comfort, professionalism, and class.",
 } as const;

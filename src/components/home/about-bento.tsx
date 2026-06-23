@@ -21,9 +21,9 @@ export function AboutBento({ settings }: { settings: Settings }) {
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black via-black/30 to-transparent" />
               <div className="absolute bottom-0 left-0 right-0 p-8 lg:p-10">
-                <p className="text-xs font-semibold uppercase tracking-[0.35em] text-gold">About Mekit</p>
+                <p className="text-xs font-semibold uppercase tracking-[0.35em] text-gold">About Us</p>
                 <h2 className="font-display mt-3 text-3xl font-semibold text-white md:text-4xl">
-                  Nigeria&apos;s trusted premium rental experience
+                  Houston&apos;s trusted luxury transportation experience
                 </h2>
               </div>
             </div>
@@ -33,7 +33,7 @@ export function AboutBento({ settings }: { settings: Settings }) {
             <Crown className="h-8 w-8 text-gold" />
             <h3 className="font-display mt-6 text-2xl font-semibold text-white">Vision</h3>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
-              To be Nigeria&apos;s most trusted premium vehicle rental brand — delivering luxury, reliability, and seamless booking every time.
+              To become one of the most trusted and recognized luxury transportation providers in Texas, delivering world-class travel experiences that make every ride memorable.
             </p>
           </Card>
 
@@ -42,7 +42,7 @@ export function AboutBento({ settings }: { settings: Settings }) {
             <h3 className="font-display mt-6 text-2xl font-semibold text-white">Mission</h3>
             <p className="mt-3 text-sm leading-relaxed text-muted-foreground">
               {settings.about_text ||
-                "A curated fleet of well-maintained vehicles with transparent pricing and instant WhatsApp support."}
+                "To provide premium, dependable, and affordable luxury transportation solutions while creating lasting relationships with our clients through excellence and outstanding service."}
             </p>
             <Button asChild variant="outline" className="mt-6">
               <Link href="/about">Learn more</Link>
