@@ -8,7 +8,7 @@ const FLEET_IMAGES: Record<string, string> = {
 };
 
 export function formatPrice(n: number) {
-  return `₦${Number(n).toLocaleString()}`;
+  return `$${Number(n).toLocaleString()}`;
 }
 
 export function fleetImage(bodyType?: string) {
