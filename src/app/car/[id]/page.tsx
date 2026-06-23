@@ -3,6 +3,11 @@ import { CarDetailView } from "@/components/car/car-detail-view";
 import { Footer } from "@/components/layout/footer";
 import { Header } from "@/components/layout/header";
 import { getCar, getSettings } from "@/lib/cars";
+import { CARS } from "@/data/cars";
+
+export function generateStaticParams() {
+  return CARS.map((car) => ({ id: String(car.id) }));
+}
 
 export async function generateMetadata({ params }: { params: Promise<{ id: string }> }) {
   const { id } = await params;
